@@ -1,0 +1,16 @@
+export const black = "black";
+export const dark_blue = "dark_blue";
+export const blue = "blue";
+export const dark_green = "dark_green";
+export const dark_aqua = "dark_aqua";
+export const dark_red = "dark_red";
+export const dark_purple = "dark_purple";
+export const gold = "gold";
+export const gray = "gray";
+export const dark_gray = "dark_gray";
+export const green = "green";
+export const aqua = "aqua";
+export const red = "red";
+export const light_purple = "light_purple";
+export const yellow = "yellow";
+export const white = "white";

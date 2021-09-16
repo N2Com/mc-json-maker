@@ -1,0 +1,51 @@
+{
+  "display": {
+    "Name": "[{\"text\":\"Flyswatter\",\"color\":\"gold\",\"italic\":false}]",
+    "Lore": [
+      "[{\"text\":\"Bane of Stupid Silverfish Eleventy\",\"color\":\"gray\",\"italic\":false}]",
+      "[{\"text\":\"Sweeping Edge III\",\"color\":\"gray\",\"italic\":false}]",
+      "[{\"text\":\"Curse of Being a Weiner II\",\"color\":\"red\",\"italic\":false}]",
+      "[[{\"text\":\"F\",\"italic\":false},{\"text\":\"U\",\"color\":\"red\",\"italic\":false},{\"text\":\"C\",\"color\":\"red\",\"italic\":false},{\"text\":\"K\",\"color\":\"yellow\",\"italic\":false},{\"text\":\" \",\"color\":\"red\",\"italic\":false},{\"text\":\"Y\",\"color\":\"red\",\"italic\":false},{\"text\":\"O\",\"color\":\"yellow\",\"italic\":false},{\"text\":\"U\",\"italic\":false},{\"text\":\"R\",\"color\":\"blue\",\"italic\":false},{\"text\":\" \",\"color\":\"yellow\",\"italic\":false},{\"text\":\"S\",\"color\":\"red\",\"italic\":false},{\"text\":\"I\",\"italic\":false},{\"text\":\"L\",\"italic\":false},{\"text\":\"V\",\"italic\":false},{\"text\":\"E\",\"italic\":false},{\"text\":\"R\",\"color\":\"light_purple\",\"italic\":false},{\"text\":\"F\",\"color\":\"blue\",\"italic\":false},{\"text\":\"I\",\"color\":\"green\",\"italic\":false},{\"text\":\"S\",\"color\":\"yellow\",\"italic\":false},{\"text\":\"H\",\"color\":\"gold\",\"italic\":false}]]",
+      "[{\"text\":\"\",\"italic\":false}]",
+      "[{\"text\":\"Legendary\",\"color\":\"gold\",\"italic\":false}]",
+      "[{\"text\":\"Artifact Credit: \",\"color\":\"white\",\"italic\":false},{\"text\":\"Nifusion\",\"color\":\"dark_red\",\"italic\":false}]",
+      "[{\"text\":\"\",\"italic\":false}]",
+      "{\"text\":\"When in Main Hand: \",\"color\":\"gray\",\"italic\":false}",
+      "{\"text\":\"∞ Attack Damage*\",\"color\":\"dark_green\",\"italic\":false}",
+      "{\"text\":\"π Attack Speed\",\"color\":\"dark_green\",\"italic\":false}",
+      "[{\"text\":\"\",\"italic\":false}]",
+      "{\"text\":\"* against Silverfish\",\"color\":\"dark_green\",\"italic\":false}"
+    ]
+  },
+  "AttributeModifiers": [
+    {
+      "Slot": "feet",
+      "AttributeName": "generic.attack_speed",
+      "Amount": 0,
+      "Operation": 0,
+      "UUIDLeast": 2132499883,
+      "UUIDMost": 55950045
+    },
+    {
+      "Slot": "feet",
+      "AttributeName": "generic.attack_damage",
+      "Amount": 1,
+      "Operation": 0,
+      "UUIDLeast": 504872900,
+      "UUIDMost": 2132725700
+    }
+  ],
+  "Enchantments": [
+    {
+      "id": "minecraft:sweeping",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:bane_of_arthropods",
+      "lvl": 10
+    }
+  ],
+  "RepairCost": 10000,
+  "Unbreakable": 1,
+  "HideFlags": 3
+}
