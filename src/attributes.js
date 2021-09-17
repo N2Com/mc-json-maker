@@ -1,5 +1,3 @@
-import { randomNumber } from "./helpers";
-
 const format = function (slot, amount, op) {
   return {
     Slot: slot,
@@ -8,6 +6,10 @@ const format = function (slot, amount, op) {
     Operation: op ?? this.defaultOp,
     ...UUIDs(),
   };
+};
+
+export const randomNumber = (min, max, round = 0) => {
+  return parseFloat((min + Math.random() * (max - min)).toFixed(round));
 };
 
 const UUIDs = () => {
