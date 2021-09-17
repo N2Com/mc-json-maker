@@ -2,7 +2,8 @@ import "./App.css";
 import { formatArtifact } from "./artifact";
 import {
   creditCloser,
-  easyLoreBlock,
+  easyTextLines,
+  rainbowTextBit,
   textBit,
   textChunk,
   textLine,
@@ -15,21 +16,24 @@ import * as slots from "./slots";
 import * as flags from "./hideFlags";
 
 function App() {
-  const itemRarity = rarity.uncommon;
+  const itemRarity = rarity.common;
+
   const arti = {
     rarity: itemRarity,
-    name: textBit("Name of the item goes here xD", itemRarity.color),
+    name: textBit("Wise Man's Feet", itemRarity.color),
     lore: textChunk(
-      ...easyLoreBlock(
+      ...easyTextLines(
         "clearly long characters exist in this text so that they may be split among themselvbes at a predetermined counter of characters",
         20
       ),
+      textLine(textBit("This line below me is")),
+      textLine(rainbowTextBit("Faaaaa buu llooousssss")),
       ...creditCloser(itemRarity, "Nifusion", colors.dark_red)
     ),
     attributeModifiers: [
-      attr.armor.format(slots.head, 3, attr.operations.additive),
+      attr.armor.format(slots.feet, 2, attr.operations.additive),
     ],
-    enchantments: [enchants.unbreaking.lvl(4)],
+    enchantments: [enchants.unbreaking.lvl(2)],
     hideFlags: [flags.hideNothing],
   };
 

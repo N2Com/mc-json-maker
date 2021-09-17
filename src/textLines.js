@@ -1,5 +1,12 @@
 import * as colors from "./colors";
 
+/**
+ * Formats a textBit based on input
+ * @param {string} text Text of the textBit
+ * @param {string} color Color of the textBit
+ * @param {object} format Formatting of the textBit
+ * @returns {object} Minecraft's expected textBit object
+ */
 export const textBit = (
   text,
   color,
@@ -18,19 +25,32 @@ export const textBit = (
   };
 };
 
-export const textLine = (...loreBits) => {
-  return loreBits;
+/**
+ * Simplifies array-ification of any number of input textBit params
+ * @param  {...object} textBits Any number of textBits can go in a textLine
+ * @returns {object[]} The array of input textBits, symbolizing the textLine
+ */
+export const textLine = (...textBits) => {
+  return textBits;
 };
 
-export const textChunk = (...loreLines) => {
-  return loreLines;
+/**
+ * Simplifies array-ification of any number of input textLine params
+ * @param  {...object} textLines Any number of textLines can go in a textChunk
+ * @returns {object[]} Array of input textLines, symbolizing the textChunk
+ */
+export const textChunk = (...textLines) => {
+  return textLines;
 };
 
-function escapeRegExp(stringToGoIntoTheRegex) {
-  return stringToGoIntoTheRegex.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
-}
-
-export const easyLoreBlock = (
+/**
+ * Auto line breaks input text per lineCharLimit; breaks on spaces
+ * @param {string} text Text you want displayed in the textLines
+ * @param {number} lineCharLimit
+ * @param {string} color
+ * @returns Array of textLines
+ */
+export const easyTextLines = (
   text,
   lineCharLimit,
   color = colors.dark_purple
@@ -44,14 +64,29 @@ export const easyLoreBlock = (
   );
 };
 
+/**
+ * Quick way to input an empty textLine
+ * @returns Empty textLine
+ */
 export const emptyLine = () => {
   return textLine(textBit(""));
 };
 
+/**
+ * Quick way to input a rarity textLine
+ * @param {object} rarity Rarity object
+ * @returns Rarity id as the rarity color
+ */
 export const rarityLine = (rarity) => {
   return textLine(textBit(rarity.id, rarity.color));
 };
 
+/**
+ * Quick way to input a credit textLine
+ * @param {string} author Who you would like to credit
+ * @param {string} nameColor What color their name will be
+ * @returns 'Artifact Credit: author' textLine
+ */
 export const creditLine = (author, nameColor) => {
   return textLine(
     textBit("Artifact Credit: ", colors.gray),
@@ -59,6 +94,13 @@ export const creditLine = (author, nameColor) => {
   );
 };
 
+/**
+ * Quick way to input lore closing textLines
+ * @param {object} rarity Rarity object
+ * @param {string} name Who you would like to credit the artifact towards
+ * @param {string} nameColor What color their name will be
+ * @returns emptyLine, rarityLine, creditLine
+ */
 export const creditCloser = (rarity, name, nameColor = colors.dark_aqua) => {
   return [emptyLine(), rarityLine(rarity), creditLine(name, nameColor)];
 };
@@ -69,17 +111,25 @@ const rainbow = [
   colors.yellow,
   colors.green,
   colors.blue,
-  colors.light_purple,
+  colors.dark_purple,
 ];
-const rainbowTextBit = (text, format) => {
-  let i = -1;
-  return [...text].map((char) => {
-    if (char === " ") return textBit(char, rainbow[i], format);
-    if (i === 5) {
-      i = 0;
-    } else {
-      i++;
+
+/**
+ * Rainbow-ifies the input text, cycling through the 6 core colors of ROY G BV
+ * Preserves colors when iterating through spaces
+ * #IndigoIsNotReal
+ * @param {string} text The text you would like to rainbow-ify
+ * @param {object} format Formatting of said text
+ * @returns Array of textBits, looking faaaabulooouusss
+ */
+export const rainbowTextBit = (text, format) => {
+  var cv = 0;
+  return [...text].map((char, index) => {
+    if (char === " ") {
+      cv++;
+      return textBit(char, colors.white, format);
     }
-    return textBit(char, rainbow[i], format);
+
+    return textBit(char, rainbow[(index - cv) % rainbow.length], format);
   });
 };
