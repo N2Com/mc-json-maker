@@ -12,12 +12,13 @@ import * as colors from "./colors";
 import * as rarity from "./rarity";
 import * as enchants from "./enchantments";
 import * as attr from "./attributes";
-import * as slots from "./slots";
 import * as flags from "./hideFlags";
+import * as armor from "./armor";
 
 function App() {
   const itemRarity = rarity.common;
 
+  const item = armor.ironHelmet;
   const arti = {
     rarity: itemRarity,
     name: textBit("Wise Man's Feet", itemRarity.color),
@@ -31,7 +32,7 @@ function App() {
       ...creditCloser(itemRarity, "Nifusion", colors.dark_red)
     ),
     attributeModifiers: [
-      attr.armor.format(slots.feet, 2, attr.operations.additive),
+      attr.armor.format(item.slot, 2),
     ],
     enchantments: [enchants.unbreaking.lvl(2)],
     hideFlags: [flags.hideNothing],
@@ -44,14 +45,14 @@ function App() {
   console.log(art);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(JSON.stringify(art));
+    navigator.clipboard.writeText(`/give @p ${item.id}${JSON.stringify(art)}`);
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <div style={{ fontSize: ".5em", width: "75%" }}>
-          {JSON.stringify(art, null, "\t")}
+          {`/give @p ${item.id}${JSON.stringify(art, null, "\t")}`}
         </div>
         <button onClick={copyToClipboard}>Copy</button>
         <p>
