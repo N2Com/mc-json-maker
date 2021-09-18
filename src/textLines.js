@@ -1,4 +1,4 @@
-import * as colors from "./colors";
+import { textColors } from "./colors";
 
 /**
  * Formats a textBit based on input
@@ -53,7 +53,7 @@ export const textChunk = (...textLines) => {
 export const easyTextLines = (
   text,
   lineCharLimit,
-  color = colors.dark_purple
+  color = textColors.dark_purple
 ) => {
   var regex = new RegExp(`.{1,${lineCharLimit}}(\\s|$)`, "g");
   const splits = text.match(regex);
@@ -89,7 +89,7 @@ export const rarityLine = (rarity) => {
  */
 export const creditLine = (author, nameColor) => {
   return textLine(
-    textBit("Artifact Credit: ", colors.gray),
+    textBit("Artifact Credit: ", textColors.gray),
     textBit(author, nameColor)
   );
 };
@@ -101,17 +101,21 @@ export const creditLine = (author, nameColor) => {
  * @param {string} nameColor What color their name will be
  * @returns emptyLine, rarityLine, creditLine
  */
-export const creditCloser = (rarity, name, nameColor = colors.dark_aqua) => {
+export const creditCloser = (
+  rarity,
+  name,
+  nameColor = textColors.dark_aqua
+) => {
   return [emptyLine(), rarityLine(rarity), creditLine(name, nameColor)];
 };
 
 const rainbow = [
-  colors.red,
-  colors.gold,
-  colors.yellow,
-  colors.green,
-  colors.blue,
-  colors.dark_purple,
+  textColors.red,
+  textColors.gold,
+  textColors.yellow,
+  textColors.green,
+  textColors.blue,
+  textColors.dark_purple,
 ];
 
 /**
@@ -127,7 +131,7 @@ export const rainbowTextBit = (text, format) => {
   return [...text].map((char, index) => {
     if (char === " ") {
       cv++;
-      return textBit(char, colors.white, format);
+      return textBit(char, textColors.white, format);
     }
 
     return textBit(char, rainbow[(index - cv) % rainbow.length], format);

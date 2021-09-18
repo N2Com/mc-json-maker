@@ -8,7 +8,7 @@ import {
   textChunk,
   textLine,
 } from "./textLines";
-import * as colors from "./colors";
+import { rgbToDecimal, textColors } from "./colors";
 import * as rarity from "./rarity";
 import * as enchants from "./enchantments";
 import * as attr from "./attributes";
@@ -16,6 +16,9 @@ import * as flags from "./hideFlags";
 import * as armor from "./armor";
 
 function App() {
+
+  console.log(rgbToDecimal(255, 255, 0))
+
   const itemRarity = rarity.common;
 
   const item = armor.ironHelmet;
@@ -29,13 +32,21 @@ function App() {
       ),
       textLine(textBit("This line below me is")),
       textLine(rainbowTextBit("Faaaaa buu llooousssss")),
-      ...creditCloser(itemRarity, "Nifusion", colors.dark_red)
+      ...creditCloser(itemRarity, "Nifusion", textColors.dark_red)
     ),
-    attributeModifiers: [
-      attr.armor.format(item.slot, 2),
-    ],
+    attributeModifiers: [attr.armor.format(item.slot, 2)],
     enchantments: [enchants.unbreaking.lvl(2)],
     hideFlags: [flags.hideNothing],
+  };
+
+  const shieldExample = {
+    BlockEntityTag: {
+      Base: 0,
+      Patterns: [
+        { Pattern: "drs", Color: 1 },
+        { Pattern: "bl", Color: 8 },
+      ],
+    },
   };
 
   console.log(arti);

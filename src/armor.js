@@ -1,5 +1,11 @@
 import * as slots from "./slots";
 
+export const shield = {
+  id: "minecraft:shield",
+  slot: slots.offHand,
+  durability: 336,
+};
+
 export const leatherHelmet = {
   id: "minecraft:leather_helmet",
   armor: 1,
