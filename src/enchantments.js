@@ -61,6 +61,7 @@ export const baneOfArthropods = {
 };
 
 export const curseOfBinding = {
+  isCurse: true,
   id: _curseOfBinding,
   maxLvl: 1,
   lvl,
@@ -323,6 +324,7 @@ export const unbreaking = {
 };
 
 export const curseOfVanishing = {
+  isCurse: true,
   id: _curseOfVanishing,
   maxLvl: 1,
   lvl,
