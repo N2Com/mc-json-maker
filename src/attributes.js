@@ -15,7 +15,7 @@ export const randomNumber = (min, max, round = 0) => {
 const UUIDs = () => {
   return {
     UUIDLeast: randomNumber(0, 2147483647),
-    UUIDMost: randomNumber(0, 2147483647),
+    UUIDMost: randomNumber(0, 2147483647)
   };
 };
 
