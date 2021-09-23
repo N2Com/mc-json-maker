@@ -1,5 +1,15 @@
 import * as _rarity from "./rarity";
 
+const format = function (slot, amount, op) {
+  return {
+    Slot: slot,
+    AttributeName: this.attributeName,
+    Amount: amount,
+    Operation: op ?? this.defaultOp,
+    ...UUIDs(),
+  };
+};
+
 export const randomNumber = (min, max, round = 0) => {
   return parseFloat((min + Math.random() * (max - min)).toFixed(round));
 };
@@ -11,33 +21,18 @@ const UUIDs = () => {
   };
 };
 
-class Attribute {
-  constructor(name, op) {
-    this.attributeName = name;
-    this.defaultOp = op;
-  }
-
-  *format(slot, amount, op) {
-    return {
-      Slot: slot,
-      AttributeName: this.attributeName,
-      Amount: amount,
-      Operation: op ?? this.defaultOp,
-      ...UUIDs(),
-    };
-  }
-}
-
 export const operations = {
   additive: 0,
   multiply_base: 1,
   multiply: 2,
 };
 
-export const maxHealth = new Attribute(
-  "generic.max_health",
-  operations.additive
-);
+export const maxHealth = {
+  attributeName: "generic.max_health",
+  defaultOp: operations.additive,
+  range: [0, 5],
+  format,
+};
 
 export const knockbackResistance = {
   attributeName: "generic.knockback_resistance",
